@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-30 14:40:09
+ * @LastEditTime: 2019-08-30 14:56:33
  */
 'use strict';
 
@@ -14,7 +14,7 @@ const program = require('commander');
 const exec = require('mz/child_process').exec;
 const locals = require('../locals')();
 const log = require('../lib/utils/log');
-// const initCommand = require('./scaffold');
+const initCommand = require('./scaffold');
 // 检查版本更新方法
 // const checkUpdate = require('../lib/utils/checkUpdate');
 
@@ -22,11 +22,13 @@ let version = process.env.VERSION;
 
 // 检查最新版本
 // checkUpdate().then(async () => {
+let logo = chalk.yellow(figlet.textSync('HK-UI-CLI', { horizontalLayout: 'full' }))
 // 如果后序没有输入命令，执行帮助指令
-if (!process.argv[2]) {
-  let output = exec('hk-ui-cli -h');
-  // let output = await exec('hk-ui-cli -h');
-  console.log(output[0]);
+if (!process.argv[2] || !process.argv) {
+  console.log(logo);
+  exec('hk-ui-cli -h').then((res) => {
+    console.log(res[0])
+  })
 }
 // 获取版本号
 else {
@@ -34,7 +36,7 @@ else {
 
   if (argv === '-v' || argv === '--version') {
     clear();
-    console.log(chalk.yellow(figlet.textSync('HK-UI-CLI', { horizontalLayout: 'full' })));
+    console.log(logo);
     log.info('hk-ui-cli version: ', version);
   }
 }
@@ -59,7 +61,7 @@ program
   });
 
 // init
-// initCommand(program);
+initCommand(program);
 
 program.parse(process.argv);
 // });

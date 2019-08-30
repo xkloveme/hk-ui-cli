@@ -4,10 +4,8 @@
  * @Author: superDragon
  * @Date: 2019-08-30 10:56:06
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-30 14:12:36
+ * @LastEditTime: 2019-08-30 14:45:55
  */
-
-
 process.env.NODE_PATH = __dirname + '/../node_modules/'
 process.env.NODE_ENV = 'development';
 process.env.VERSION = require('./../package.json').version;
