@@ -3,10 +3,13 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:48:31
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-30 14:21:37
+ * @LastEditTime: 2019-08-30 14:40:09
  */
 'use strict';
 
+const clear = require('clear');
+const chalk = require('chalk');
+const figlet = require('figlet');
 const program = require('commander');
 const exec = require('mz/child_process').exec;
 const locals = require('../locals')();
@@ -19,7 +22,6 @@ let version = process.env.VERSION;
 
 // 检查最新版本
 // checkUpdate().then(async () => {
-console.log(process.argv)
 // 如果后序没有输入命令，执行帮助指令
 if (!process.argv[2]) {
   let output = exec('hk-ui-cli -h');
@@ -31,6 +33,8 @@ else {
   let argv = process.argv[2];
 
   if (argv === '-v' || argv === '--version') {
+    clear();
+    console.log(chalk.yellow(figlet.textSync('HK-UI-CLI', { horizontalLayout: 'full' })));
     log.info('hk-ui-cli version: ', version);
   }
 }
