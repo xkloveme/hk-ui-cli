@@ -3,12 +3,15 @@
   "version": "1.0.3",
   "description": "快速开始一个hk-ui项目",
   "bin": {
-    "hk-ui-cli": "bin/hk-ui-cli.js"
+    "hk-ui": "bin/hk-ui.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["cli", "vue"],
+  "keywords": [
+    "cli",
+    "vue"
+  ],
   "author": "xkloveme",
   "license": "ISC",
   "dependencies": {

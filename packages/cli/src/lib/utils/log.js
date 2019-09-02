@@ -82,7 +82,7 @@ logTypes.forEach(function (item) {
       flag.clear();
     }
     if (msg) {
-      console.log((log.prefix || 'HK-UI-CLI') + ' ' + item.color(item.name.toUpperCase()) + ' ' + msg);
+      console.log((log.prefix || 'HK-UI') + ' ' + item.color(item.name.toUpperCase()) + ' ' + msg);
     }
     else {
       console.log();

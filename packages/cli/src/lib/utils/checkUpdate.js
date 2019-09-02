@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 14:18:24
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-30 14:18:32
+ * @LastEditTime: 2019-09-01 13:05:58
  */
 /**
  * 检测是否需要更新版本
@@ -22,7 +22,7 @@ const locals = require('../../locals')();
 const getHome = require('./index').getHome;
 
 const TIME_RANGE = 24 * 60 * 60 * 1000;
-const NPM_REGISTRY = 'https://registry.npm.taobao.org/ivue-material-cli';
+const NPM_REGISTRY = 'https://registry.npm.taobao.org/hk-ui-cli';
 
 
 async function requestPackageInfo () {

@@ -1,53 +1,40 @@
 /*
- * @describe: 上色
+ * @describe: 描述
  * @Author: superDragon
  * @Date: 2019-08-29 17:51:58
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-29 17:54:12
+ * @LastEditTime: 2019-09-01 13:14:22
  */
-'use strict';
+const dns = require('dns');
+const os = require('os');
+const fs = require('fs-extra');
+const path = require('path');
 
-/* eslint-disable */
-const chalk = require('chalk');
-const util = require('util');
+/**
+ * 检测当前网络环境
+ *
+ * @return {Boolean} 是否联网
+ */
+exports.isNetworkConnect = function () {
+  return new Promise((reslove) => {
+    dns.lookup('so.com', (err) => reslove(!(err && err.code === 'ENOTFOUND')));
+  });
+}
 
-let log = {};
+/**
+ * 获取项目根目录
+ *
+ * @return {string} 目录 Path
+ */
+exports.getHome = function () {
+  let dir = process.env[
+    os.platform() === 'win32'
+      ? 'APPDATA'
+      : 'HOME'
+  ] + path.sep + '.hk-ui-cli-project'
 
-// 管理命令 log 颜色
-let logTypes = [
-  {
-    name: 'info',
-    color: chalk.green,
-    level: 2
-  },
-  {
-    name: 'error',
-    color: chalk.red,
-    level: 4
-  }
-];
+  // 如果这个目录不存在，则创建这个目录
+  !fs.existsSync(dir) && fs.mkdirSync(dir);
 
-
-logTypes.forEach(function (item) {
-
-  /**
-   * 定义打印日志格式
-   *
-   * @param {string} format 要输出的内容.
-   * @param {...*} varArgs 变长参数.
-   */
-  log[item.name] = function (format, varArgs) {
-    // 格式化输出字符串
-    let msg = util.format.apply(null, arguments);
-
-    if (msg) {
-      console.log((log.prefix || 'msg') + ' ' + item.color(item.name.toUpperCase()) + ' ' + msg);
-    }
-    else {
-      console.log();
-    }
-  };
-});
-
-
-module.exports = log;
+  return dir;
+};
