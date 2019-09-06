@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-30 11:21:16
  * @LastEditors: superDragon
- * @LastEditTime: 2019-08-30 11:23:06
+ * @LastEditTime: 2019-09-04 18:41:25
  */
 const utils = require('../../lib/utils')
 const locals = require('../../locals')();
@@ -71,14 +71,14 @@ module.exports = async function (conf) {
   spinner.start();
   let metaSchema = await scaffold.getMetaSchema();
   spinner.stop();
-
+  console.log(metaSchema, 11)
   // 第二步：等待用户选择将要下载的框架和模板
   let metaParams = await formQ(metaSchema);
-
+  console.log(metaParams, 11)
   let checkboxParams;
   let cssParams;
   // 只有基础模板才可以自定义选项
-  if (metaParams.template === 'Basic') {
+  if (metaParams.template === 'simple') {
     // 获取用户选择的参数
     checkboxParams = await formQ(metaSchema.checkbox);
 
@@ -95,7 +95,7 @@ module.exports = async function (conf) {
 
   // 设置用户选择的参数
   // 只有基础模板才可以自定义选项
-  if (metaParams.template === 'Basic') {
+  if (metaParams.template === 'simple') {
     await scaffold.setCheckboxParams(checkboxParams.checkbox);
 
     // 是否选择了css

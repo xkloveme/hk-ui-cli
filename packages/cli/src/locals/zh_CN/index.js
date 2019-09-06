@@ -3,7 +3,7 @@
  * @Author: superDragon
  * @Date: 2019-08-29 17:49:22
  * @LastEditors: superDragon
- * @LastEditTime: 2019-09-01 13:53:58
+ * @LastEditTime: 2019-09-02 16:45:46
  */
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
   NO_COMMAND: '命令不存在',
   INIT_DESC: '初始化一个项目',
   INIT_OPTION_FORCE: '初始化一个项目',
-  GREETING_GUIDE: '开始新建一个项目',
+  GREETING_GUIDE: '开始新建一个 HK-UI 项目',
   NETWORK_DISCONNECT: '创建工程需要下载云端模版',
   NETWORK_DISCONNECT_SUG: '请确认您的设备处于网络可访问的环境中',
   LOADING_FROM_CLOUD: '正在拉取云端数据，请稍候',
