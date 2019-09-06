@@ -1,6 +1,6 @@
 {
   "name": "hk-ui-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "快速开始一个hk-ui项目",
   "bin": {
     "hk-ui": "bin/hk-ui.js"
